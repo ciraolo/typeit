@@ -34,80 +34,19 @@
       <h3 id="example1"></h3>
     </section>
 
-    <section>
-      <h2>Multiple Strings</h2>
-      <h3 id="example2"></h3>
-    </section>
-
-    <section>
-      <h2>HTML, Delete &amp; Replace Each Other</h2>
-      <h3 id="example3"></h3>
-    </section>
-
-    <section>
-      <h2>Looping Strings</h2>
-      <h3 id="example4"></h3>
-    </section>
-
-    <section>
-      <h2>Companion Functions</h2>
-      <h3 id="example5"></h3>
-    </section>
-
-    <section>
-      <h2>Hard-Coded String</h2>
-      <h3 id="example6"><!-- This comment should be removed automatically. Don't worry about it being typed. -->This string is hard-coded!</h3>
-    </section>
-
     <script src="dist/typeit.js"></script>
 
 		<script>
-      new TypeIt('#example1', {
+      window.instance = new TypeIt('#example1', {
         speed: 50,
         strings: 'Just a simple string.',
         cursorChar: '<strong>hello</strong>',
         cursor: false
       });
 
-      new TypeIt('#example2', {
-        speed: 50,
-        strings: ['This is my first example.', 'It has several strings!'],
-        cursor: false,
-        startDelay: 3000
-      });
-
-      new TypeIt('#example3', {
-        speed: 50,
-        strings: [
-          'This is my <strong>second</strong> example.',
-          'This should <strong>replace</strong> the second string!'
-        ],
-        breakLines: false
-      });
-
-      new TypeIt('#example4', {
-        speed: 50,
-        strings: ['My first string.', 'My second string.'],
-        loop: true
-      });
-
-      new TypeIt('#example5', {
-        speed: 100
-      })
-        .type('Here\'s my first sting.')
-        .pause(500)
-        .delete(4)
-        .pause(500)
-        .type('ring.')
-        .pause(500)
-        .delete()
-        .pause(500)
-        .options({
-          speed: 25
-        })
-        .type('And here it is faster!');
-
-      new TypeIt('#example6');
+      setTimeout(() => {
+        instance.destroy();
+      }, 1000);
 		</script>
 	</body>
 </html>
