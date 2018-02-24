@@ -733,14 +733,11 @@ var TypeIt = function () {
       var removeCursor = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
 
-      console.log('destroying!');
-
       this.instances.forEach(function (instance) {
-        instance.timeouts.forEach(function (timeout) {
-          clearTimeout(timeout);
 
-          console.log(timeout);
-          //-- set to null?
+        instance.timeouts = instance.timeouts.map(function (timeout) {
+          clearTimeout(timeout);
+          return null;
         });
 
         if (removeCursor) {
@@ -748,7 +745,7 @@ var TypeIt = function () {
         }
       });
 
-      // this.instances = [];
+      this.instances = [];
     }
   }, {
     key: "empty",

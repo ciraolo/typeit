@@ -107,15 +107,10 @@ export default class TypeIt {
   }
 
   destroy(removeCursor = true) {
-
-    console.log('destroying!');
-
     this.instances.forEach(instance => {
-      instance.timeouts.forEach(timeout => {
+      instance.timeouts = instance.timeouts.map(timeout => {
         clearTimeout(timeout);
-
-        console.log(timeout);
-        //-- set to null?
+        return null;
       });
 
       if (removeCursor) {
@@ -125,7 +120,7 @@ export default class TypeIt {
       }
     });
 
-    // this.instances = [];
+    this.instances = [];
   }
 
   empty() {
