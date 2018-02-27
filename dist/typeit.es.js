@@ -196,7 +196,7 @@ var Instance = function () {
 
       string = this.toArray(string);
 
-      var doc = document.implementation.createHTMLDocument();
+      var doc = document.implementation.createHTMLDocument('');
       doc.body.innerHTML = string;
 
       //-- If it's designated, rake that bad boy for HTML tags and stuff.
@@ -209,7 +209,7 @@ var Instance = function () {
       if (this.options.html && string[0].startsWith("<") && !string[0].startsWith("</")) {
         //-- Create node of that string name.
         var matches = string[0].match(/\<(.*?)\>/);
-        var _doc = document.implementation.createHTMLDocument();
+        var _doc = document.implementation.createHTMLDocument('');
         _doc.body.innerHTML = "<" + matches[1] + "></" + matches[1] + ">";
 
         //-- Add to the queue.
